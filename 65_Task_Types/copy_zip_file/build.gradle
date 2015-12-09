@@ -1,0 +1,12 @@
+task copyFile(type: Copy) {
+	from 'source'
+	into 'destination'
+}
+
+task zipFile(type:Zip) {
+	from 'source'
+	into 'destination' // folder inside ZIP
+	include '*'
+	archiveName 'resources.zip'
+	destinationDir file('destination')
+}

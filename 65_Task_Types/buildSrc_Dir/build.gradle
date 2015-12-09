@@ -1,0 +1,9 @@
+task defaultWebsiteCheck(type: com.example.CheckWebsite)
+
+task checkGradleWebsite(type: com.example.CheckWebsite) {
+    url = 'https://docs.gradle.org/'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}

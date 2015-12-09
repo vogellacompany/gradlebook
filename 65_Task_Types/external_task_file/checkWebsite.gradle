@@ -1,0 +1,15 @@
+task defaultWebsiteCheck(type: CheckWebsite)
+
+task checkGradleWebsite(type: CheckWebsite) {
+    url = 'https://docs.gradle.org/'
+}
+
+class CheckWebsite extends DefaultTask {
+    String url = 'www.vogella.com'
+
+    @TaskAction
+    void checkWebsite() {
+        // check the given website by using the url
+	println url
+    }
+}
