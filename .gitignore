@@ -1,5 +1,7 @@
 **/.gradle
+**/build
 build
 .class
 bin/
 *~
+
