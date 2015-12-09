@@ -1,0 +1,19 @@
+task helloGradle {
+	group = 'workshop'
+	description = 'Hello Gradle Task'
+	doLast {
+		println 'Hello Gradle'
+	}
+}
+
+task learnGroovy << {
+	println 'Learn Groovy'
+}
+
+task learnGradle(dependsOn: learnGroovy) << {
+	println 'Learn Gradle'
+}
+
+learnGroovy.doFirst {
+	println 'Install Eclipse IDE'
+}
