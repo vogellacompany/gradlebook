@@ -1,8 +1,0 @@
-apply plugin: 'eclipse'
-apply plugin: 'war'
-apply plugin: 'jetty'
-apply plugin: 'findbugs'
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.9'
-}

@@ -1,5 +1,0 @@
-apply from: 'checkWebsite.gradle'
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.9'
-}

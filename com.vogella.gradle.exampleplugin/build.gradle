@@ -1,6 +1,0 @@
-apply plugin: 'java'
-apply plugin: 'maven'
-
-dependencies {
-    compile gradleApi()
-}
