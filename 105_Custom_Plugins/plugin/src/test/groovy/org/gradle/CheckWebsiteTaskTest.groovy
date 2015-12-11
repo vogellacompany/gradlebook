@@ -1,15 +1,18 @@
 package com.example
 
-import org.junit.Test
+import spock.lang.Specification
+
 import org.gradle.testfixtures.ProjectBuilder
 import org.gradle.api.Project
-import static org.junit.Assert.*
 
-class CheckWebsiteTaskTest {
-    @Test
-    public void canAddTaskToProject() {
+class CheckWebsiteTaskTest extends Specification {
+
+    public void greeterPluginAddsGreetingTaskToProject() {
+	setup:
         Project project = ProjectBuilder.builder().build()
+	when:        
         def task = project.task('greeting', type: CheckWebsite)
-        assertTrue(task instanceof CheckWebsite)
+	then:
+        task instanceof CheckWebsite
     }
 }
