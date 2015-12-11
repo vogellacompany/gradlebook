@@ -8,7 +8,7 @@ import org.jsoup.nodes.Document;
 
 class CheckWebsite extends DefaultTask {
 
-    String url = 'www.vogella.com'
+    String url = 'http://www.vogella.com'
 
     @TaskAction
     def checkWebsite() {
