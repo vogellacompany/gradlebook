@@ -29,7 +29,11 @@ publishing {
             		password 'admin123'
         	}
 		// url "$buildDir/repo"
-		url "http://localhost:8081/nexus/content/repositories/releases/"
+   		if(project.version.endsWith('-SNAPSHOT')) {
+                	url "http://localhost:8081/nexus/content/repositories/snapshots/"
+                } else {
+                	url "http://localhost:8081/nexus/content/repositories/releases/"
+            	}
 	}
     }
 }

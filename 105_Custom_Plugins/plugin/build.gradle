@@ -1,6 +1,9 @@
 apply plugin: 'groovy'
 apply plugin: 'maven-publish'
 
+group 'workshop'
+version = '1.0.0'
+
 dependencies {
     compile gradleApi()
     compile localGroovy()
@@ -37,7 +40,12 @@ publishing {
             		username 'admin'
             		password 'admin123'
         	}
-		url "http://localhost:8081/nexus/content/repositories/releases/"
+
+	        if(project.version.endsWith('-SNAPSHOT')) {
+                	url "http://localhost:8081/nexus/content/repositories/snapshots/"
+                } else {
+                	url "http://localhost:8081/nexus/content/repositories/releases/"
+            	}
 	}
     }
 }
