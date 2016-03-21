@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
+apply plugin: 'jacoco'
 
 findbugs {
 	toolVersion = '3.0.1'
