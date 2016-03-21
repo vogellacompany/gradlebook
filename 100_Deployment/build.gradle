@@ -4,6 +4,9 @@ apply plugin: 'maven-publish'
 group 'workshop'
 version = '1.0.0'
 
+// activate this property to deploy to nexus
+// ext.deployTo = 'nexus'
+
 repositories {
     jcenter()
 }
@@ -24,15 +27,21 @@ publishing {
 
     repositories {
 	maven {
-		credentials {
-            		username 'admin'
-            		password 'admin123'
-        	}
-		// url "$buildDir/repo"
-   		if(project.version.endsWith('-SNAPSHOT')) {
-                	url "http://localhost:8081/nexus/content/repositories/snapshots/"
-                } else {
-                	url "http://localhost:8081/nexus/content/repositories/releases/"
+		// deploy to nexus
+		if(project.hasProperty('deployTo') && deployTo == 'nexus') {
+			credentials {
+            			username 'admin'
+    				password 'admin123'
+        		}
+
+			if(project.version.endsWith('-SNAPSHOT')) {
+                		url "http://localhost:8081/nexus/content/repositories/snapshots/"
+			} else {
+                		url "http://localhost:8081/nexus/content/repositories/releases/"
+			}                
+		} else {
+			// deploy to local repo
+			url "$buildDir/repo"
             	}
 	}
     }
