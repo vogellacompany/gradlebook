@@ -1,48 +1,8 @@
-apply plugin: 'groovy'
-apply plugin: 'maven-publish'
+// deploy to a local Artifactory instance
+// apply from: 'artifactory.gradle'
 
-group 'workshop'
-version = '1.0.0'
+// deploy to a local Nexus instance
+// apply from: 'nexus.gradle'
 
-// activate this property to deploy to nexus
-// ext.deployTo = 'nexus'
-
-repositories {
-    jcenter()
-}
-
-dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.4.4'
-
-    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
-    testCompile 'junit:junit:4.12'
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
-
-    repositories {
-	maven {
-		// deploy to nexus
-		if(project.hasProperty('deployTo') && deployTo == 'nexus') {
-			credentials {
-            			username 'admin'
-    				password 'admin123'
-        		}
-
-			if(project.version.endsWith('-SNAPSHOT')) {
-                		url "http://localhost:8081/nexus/content/repositories/snapshots/"
-			} else {
-                		url "http://localhost:8081/nexus/content/repositories/releases/"
-			}                
-		} else {
-			// deploy to local repo
-			url "$buildDir/repo"
-            	}
-	}
-    }
-}
+// deploy to a local repo folder in "$buildDir/repo" 
+apply from: 'local.gradle'
