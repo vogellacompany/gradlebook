@@ -1,0 +1,44 @@
+apply plugin: 'groovy'
+apply plugin: 'maven-publish'
+
+group 'workshop'
+version = '1.0.0'
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.jsoup:jsoup:1.8.3'
+    compile 'org.codehaus.groovy:groovy-all:2.4.4'
+
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    testCompile 'junit:junit:4.12'
+}
+
+group = 'workshop'
+version = '1.0.0-SNAPSHOT'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+    	maven {
+        	url  'http://localhost:8081/artifactory/'+ (version.contains('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local')
+        	credentials {
+        	    username "admin"
+        	    password "password"
+        	}
+    	}
+    }
+}
+
