@@ -7,7 +7,7 @@ import org.gradle.api.Project
 
 class CheckWebsitePluginTest extends Specification {
 
-    public void greeterPluginAddsGreetingTaskToProject() {
+    public void checkWebsitePluginAddsCheckWebsiteTaskToProject() {
 	setup:
         Project project = ProjectBuilder.builder().build()
 	when:        
