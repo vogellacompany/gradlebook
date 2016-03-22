@@ -6,7 +6,7 @@
 	 }
          dependencies {
            classpath group: 'com.vogella.gradle', 
-                     name: 'plugin',
+                     name: 'checkwebsite',
                      version: '1.0.0-SNAPSHOT'
          }
  }
