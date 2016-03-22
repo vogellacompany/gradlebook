@@ -1,8 +1,24 @@
+apply plugin: 'groovy'
+
+group 'com.vogella.gradle'
+version = '0.1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.4'
+
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    testCompile 'junit:junit:4.12'
+}
+
 // deploy to a local Artifactory instance
-// apply from: 'artifactory.gradle'
+apply from: 'artifactory.gradle'
 
 // deploy to a local Nexus instance
 // apply from: 'nexus.gradle'
 
 // deploy to a local repo folder in "$buildDir/repo" 
-apply from: 'local.gradle'
+// apply from: 'local.gradle'

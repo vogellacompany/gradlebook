@@ -1,19 +1,4 @@
-apply plugin: 'groovy'
 apply plugin: 'maven-publish'
-
-group 'workshop'
-version = '1.0.0'
-
-repositories {
-    jcenter()
-}
-
-dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.4.4'
-
-    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
-    testCompile 'junit:junit:4.12'
-}
 
 publishing {
     publications {
@@ -26,6 +11,7 @@ publishing {
     	maven {
         	url  'http://localhost:8081/artifactory/'+ (version.contains('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local')
         	credentials {
+                    // credentials are usually stored in the gradle.properties file
         	    username "admin"
         	    password "password"
         	}
