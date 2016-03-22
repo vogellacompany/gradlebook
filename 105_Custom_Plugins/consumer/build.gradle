@@ -1,0 +1,14 @@
+ buildscript {
+	 repositories {
+              mavenLocal()
+              maven { url 'http://localhost:8081/artifactory/libs-snapshot-local' }
+              jcenter()
+	 }
+         dependencies {
+           classpath group: 'com.vogella.gradle', 
+                     name: 'plugin',
+                     version: '1.0.0-SNAPSHOT'
+         }
+ }
+
+apply plugin: 'com.vogella.gradle.plugin'
