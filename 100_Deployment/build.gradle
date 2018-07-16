@@ -22,3 +22,7 @@ apply from: 'artifactory.gradle'
 
 // deploy to a local repo folder in "$buildDir/repo" 
 // apply from: 'local.gradle'
+
+wrapper {
+	gradleVersion = '4.9'
+}
